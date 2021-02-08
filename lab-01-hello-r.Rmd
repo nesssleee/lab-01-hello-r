@@ -16,14 +16,12 @@ library(datasauRus)
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+I would expect 1846 rows and 3 columns.
+The variables are dataset, x-values, and y-values.
 
 ### Exercise 2
 
-The answers for this Exercise are given for you below.
-But you should clean up some of the narrative so that it only includes what you want to turn in.
-
-First let's plot the data in the dino dataset:
+Plot of the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -33,7 +31,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-And next calculate the correlation between `x` and `y` in this dataset:
+Correlation between `x` and `y` in this dataset:
 
 ```{r cor-dino}
 dino_data %>%
@@ -42,20 +40,21 @@ dino_data %>%
 
 ### Exercise 3
 
-Add code and narrative as needed.
-Note that the R chunks are labelled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
+Plot of the Star dataset:
 
-Blah blah blah...
+```{r plot-star, fig.height=5, fig.width=10}
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 
-```{r plot-star}
-
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
+Correlation between 'x' and 'y' in this data set:
 
 ```{r cor-star}
-
+star_data %>%
+  summarize(r = cor(x, y))
 ```
 
 ### Exercise 4
