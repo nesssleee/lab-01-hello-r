@@ -16,8 +16,7 @@ library(datasauRus)
 
 ### Exercise 1
 
-I would expect 1846 rows and 3 columns.
-The variables are dataset, x-values, and y-values.
+I would expect 1846 rows and 3 columns. The variables are dataset, x-values, and y-values.
 
 ### Exercise 2
 
@@ -42,7 +41,7 @@ dino_data %>%
 
 Plot of the Star dataset:
 
-```{r plot-star, fig.height=5, fig.width=10}
+```{r plot-star, fig.height=5, fig.width=5}
 star_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 
@@ -69,8 +68,8 @@ ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-
 Correlation of 'x' and 'y':
+
 ```{r cor-circle}
 circle_data %>%
   summarize(r = cor(x, y))
@@ -79,5 +78,15 @@ circle_data %>%
 
 ### Exercise 5
 
-Add code and narrative as needed.
-To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.
+Plot of all datasets at once
+
+```{r plot_all}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~dataset, ncol = 3) +
+  theme(legend.position = "none")
+datasaurus_dozen %>%
+  group_by(dataset)%>%
+  summarise(r = cor(x,y))%>%
+  print(13)
+```
