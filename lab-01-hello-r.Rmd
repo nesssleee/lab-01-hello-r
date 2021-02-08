@@ -2,7 +2,9 @@
 title: "Lab 01 - Hello R"
 author: "Vanessa Gill"
 date: "02/08/2021"
-output: github_document
+output: 
+  html_document: 
+    theme: sandstone
 ---
 
 ## Load packages and data
